@@ -12,6 +12,7 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
   2.Have got `list_68pt_rect_attr_train.txt` and `list_68pt_rect_attr_test.txt`. If you want to get them by youself, please watch [get68psFrom98psWFLW.py](https://github.com/github-luffy/PFLD_68points_Pytorch/blob/master/data/WFLW/get68psFrom98psWFLW.py) and run it before please get WFLW [Face Annotations](https://wywu.github.io/projects/LAB/support/WFLW_annotations.tar.gz) , unzip and put to `./data/WFLW/`   
 
   3.move `Mirror68.txt` to `./data/WFLW/annotations/`
+  
   ~~~shell
       $ cd ./data/WFLW 
       $ python3 WFLW_SetPreparation68.py
@@ -26,6 +27,7 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
   2.Have got `list_68pt_rect_attr_train.txt` and `list_68pt_rect_attr_test.txt`. If you want to get them by youself, please watch [get68pointsfor300W.py](https://github.com/github-luffy/PFLD_68points_Pytorch/blob/master/data/300W/get68pointsfor300W.py) and run it  
 
   3.move `Mirror68.txt` to `./data/300W/annotations/`
+  
   ~~~shell
       $ cd ./data/300W 
       $ python3 300W_SetPreparation68.py
@@ -33,6 +35,15 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
  
 - **300VW Dataset** 
 
+- **All Dataset**
+
+  After completing the steps of each data set above, you can run the code `merge_files.py` directly .  
+  
+   ~~~shell
+      $ cd ./data
+      $ python3 merge_files.py
+  ~~~
+  
 ### training & testing
 
 training :
