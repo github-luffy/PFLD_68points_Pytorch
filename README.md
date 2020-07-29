@@ -23,7 +23,7 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
 
   [300W](https://ibug.doc.ic.ac.uk/resources/300-W/) is a very general face alignment dataset. It has a total of 3148+689 images, each image contains more than one face, but only one face is labeled for each image.File directory includes afw(337)，helen(train 2000+test 330)，ibug(135)，lfpw(train 811+test 224) with 68 fully manual annotated landmarks.
 
-  1.Training and Testing images[Databases](https://ibug.doc.ic.ac.uk/resources/facial-point-annotations/)[[Baidu Drive](https://pan.baidu.com/s/1paoOpusuyafHY154lqXYrA)], Unzip and put to `./data/300W/raw/`
+  1.Training and Testing images[[Databases](https://ibug.doc.ic.ac.uk/resources/facial-point-annotations/)][[Baidu Drive](https://pan.baidu.com/s/1paoOpusuyafHY154lqXYrA)], Unzip and put to `./data/300W/raw/`
 
   2.Have got `list_68pt_rect_attr_train.txt` and `list_68pt_rect_attr_test.txt`. If you want to get them by youself, please watch
   [get68pointsfor300W.py](https://github.com/github-luffy/PFLD_68points_Pytorch/blob/master/data/300W/get68pointsfor300W.py)
