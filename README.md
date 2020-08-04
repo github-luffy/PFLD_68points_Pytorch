@@ -68,8 +68,14 @@ python3 -m onnxsim model.onnx model_sim.onnx
 ~~~~
 
 **onnx_sim -> ncnn**
-
+how to build :https://github.com/Tencent/ncnn/wiki/how-to-build
 ~~~shell
 cd ncnn/build/tools/onnx
 ./onnx2ncnn model_sim.onnx model_sim.param model_sim.bin
 ~~~
+
+### reference: 
+
+ PFLD: A Practical Facial Landmark Detector https://arxiv.org/pdf/1902.10859.pdf
+
+Tensorflow Implementation: https://github.com/guoqiangqi/PFLD
