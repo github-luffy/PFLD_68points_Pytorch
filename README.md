@@ -60,7 +60,9 @@ $ python3 camera.py
 
 ### pytorch -> onnx -> ncnn
 
-**Pytorch -> onnx -> onnx_sim(pip3 install onnx-simplifier)**
+**Pytorch -> onnx -> onnx_sim**  
+
+make sure pip3 install onnx-simplifier
 
 ~~~~shell
 python3 pytorch2onnx.py
@@ -68,6 +70,7 @@ python3 -m onnxsim model.onnx model_sim.onnx
 ~~~~
 
 **onnx_sim -> ncnn**  
+
 how to build :https://github.com/Tencent/ncnn/wiki/how-to-build
 ~~~shell
 cd ncnn/build/tools/onnx
@@ -78,4 +81,4 @@ cd ncnn/build/tools/onnx
 
 PFLD: A Practical Facial Landmark Detector https://arxiv.org/pdf/1902.10859.pdf
 
-Tensorflow Implementation: https://github.com/guoqiangqi/PFLD
+Tensorflow Implementation for 98 Facial Landmarks: https://github.com/guoqiangqi/PFLD
