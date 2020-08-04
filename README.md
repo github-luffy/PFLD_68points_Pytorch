@@ -13,10 +13,10 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
 
   3.move `Mirror68.txt` to `./data/WFLW/annotations/`
   
-  ~~~shell
-      $ cd ./data/WFLW 
-      $ python3 WFLW_SetPreparation68.py
-  ~~~
+   ~~~shell
+    $ cd ./data/WFLW 
+    $ python3 WFLW_SetPreparation68.py
+   ~~~
  
 - **300W Dataset**
 
@@ -28,10 +28,10 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
 
   3.move `Mirror68.txt` to `./data/300W/annotations/`
   
-  ~~~shell
-      $ cd ./data/300W 
-      $ python3 300W_SetPreparation68.py
-  ~~~
+   ~~~shell
+    $ cd ./data/300W 
+    $ python3 300W_SetPreparation68.py
+   ~~~
  
 - **300VW Dataset** 
 
@@ -39,43 +39,44 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
 
   After completing the steps of each data set above, you can run the code `merge_files.py` directly .  
   
-   ~~~shell
-      $ cd ./data
-      $ python3 merge_files.py
-  ~~~
+    ~~~shell
+     $ cd ./data
+     $ python3 merge_files.py
+   ~~~
   
 ### training & testing
 
-training :
+  training :
 
-~~~shell
-$ sh train.sh
-~~~
+  ~~~shell
+   $ sh train.sh
+  ~~~
 
-testing:
+  testing:
 
-~~~shell
-$ python3 camera.py
-~~~
+  ~~~shell
+   $ python3 camera.py
+  ~~~
 
 ### pytorch -> onnx -> ncnn
 
 **Pytorch -> onnx -> onnx_sim**  
 
-make sure pip3 install onnx-simplifier
+  make sure pip3 install onnx-simplifier
 
-~~~~shell
-python3 pytorch2onnx.py
-python3 -m onnxsim model.onnx model_sim.onnx
-~~~~
+  ~~~~shell
+   $ python3 pytorch2onnx.py
+   $ python3 -m onnxsim model.onnx model_sim.onnx
+  ~~~~
 
 **onnx_sim -> ncnn**  
 
-how to build :https://github.com/Tencent/ncnn/wiki/how-to-build
-~~~shell
-cd ncnn/build/tools/onnx
-./onnx2ncnn model_sim.onnx model_sim.param model_sim.bin
-~~~
+  how to build :https://github.com/Tencent/ncnn/wiki/how-to-build
+  
+  ~~~shell
+   $ cd ncnn/build/tools/onnx
+   $ ./onnx2ncnn model_sim.onnx model_sim.param model_sim.bin
+  ~~~
 
 ### reference: 
 
