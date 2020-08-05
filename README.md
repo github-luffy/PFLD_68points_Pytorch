@@ -38,8 +38,7 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
 - **Your Own Dataset**  
 
   If you want to get facial landmarks for new face data, please use [Detect API](https://www.faceplusplus.com.cn/face-detection/#demo) of face++. For specific operations,  
-  
-  please refer to [API Document](https://console.faceplusplus.com.cn/documents/4888373).And refer to `./data/getNewFacialLandmarksFromFacePP.py` for using  the api interface.  
+  please refer to [API Document](https://console.faceplusplus.com.cn/documents/4888373). And refer to `./data/getNewFacialLandmarksFromFacePP.py` for using  the api interface.  
   
 - **All Dataset**
 
