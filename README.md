@@ -58,6 +58,20 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
    $ python3 camera.py
   ~~~
 
+### Result
+
+  Sample IMGs:  
+
+  ![Image text](https://github.com/github-luffy/PFLD_68points_Pytorch/tree/master/data/Sample_imgs/2.jpg)
+  ![Image text](https://github.com/github-luffy/PFLD_68points_Pytorch/tree/master/data/Sample_imgs/12.jpg)
+  ![Image text](https://github.com/github-luffy/PFLD_68points_Pytorch/tree/master/data/Sample_imgs/14.jpg)
+  ![Image text](https://github.com/github-luffy/PFLD_68points_Pytorch/tree/master/data/Sample_imgs/16.jpg)
+  ![Image text](https://github.com/github-luffy/PFLD_68points_Pytorch/tree/master/data/Sample_imgs/17.jpg)
+  ![Image text](https://github.com/github-luffy/PFLD_68points_Pytorch/tree/master/data/Sample_imgs/20.jpg)
+  ![Image text](https://github.com/github-luffy/PFLD_68points_Pytorch/tree/master/data/Sample_imgs/67.jpg)
+  ![Image text](https://github.com/github-luffy/PFLD_68points_Pytorch/tree/master/data/Sample_imgs/85.jpg)
+  ![Image text](https://github.com/github-luffy/PFLD_68points_Pytorch/tree/master/data/Sample_imgs/86.jpg)  
+  
 ### pytorch -> onnx -> ncnn
 
 **Pytorch -> onnx -> onnx_sim**  
