@@ -11,7 +11,7 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
 
   2.Have got `list_68pt_rect_attr_train.txt` and `list_68pt_rect_attr_test.txt`. If you want to get them by youself, please watch [get68psFrom98psWFLW.py](https://github.com/github-luffy/PFLD_68points_Pytorch/blob/master/data/WFLW/get68psFrom98psWFLW.py) and run it before please get WFLW [Face Annotations](https://wywu.github.io/projects/LAB/support/WFLW_annotations.tar.gz) , unzip and put to `./data/WFLW/`   
 
-  3.move `Mirror68.txt` to `./data/WFLW/annotations/`
+  3.Move `Mirror68.txt` to `./data/WFLW/annotations/`
   
    ~~~shell
     $ cd ./data/WFLW 
@@ -26,7 +26,7 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
 
   2.Have got `list_68pt_rect_attr_train.txt` and `list_68pt_rect_attr_test.txt`. If you want to get them by youself, please watch [get68pointsfor300W.py](https://github.com/github-luffy/PFLD_68points_Pytorch/blob/master/data/300W/get68pointsfor300W.py) and run it  
 
-  3.move `Mirror68.txt` to `./data/300W/annotations/`
+  3.Move `Mirror68.txt` to `./data/300W/annotations/`
   
    ~~~shell
     $ cd ./data/300W 
@@ -34,7 +34,21 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
    ~~~
  
 - **300VW Dataset** 
+  
+  [300VW](https://ibug.doc.ic.ac.uk/resources/300-VW/) is a video format, which needs to be processed into a single frame picture and corresponds to each key point pts file.
 
+  1.Training and Testing images[[Databases](https://ibug.doc.ic.ac.uk/resources/300-VW/)], Unzip and put to `./data/300VW/raw/`
+
+  2.Run [get68psAndImagesFrom300VW.py](https://github.com/github-luffy/PFLD_68points_Pytorch/blob/master/data/300VW/get68psAndImagesFrom300VW.py) to get `list_68pt_rect_attr_train.txt`
+
+  3.Move `Mirror68.txt` to `./data/300VW/annotations/`
+  
+   ~~~shell
+    $ cd ./data/300VW 
+    $ python3 get68psAndImagesFrom300VW.py
+    $ python3 300VW_SetPreparation68.py
+   ~~~
+  
 - **Your Own Dataset**  
 
   If you want to get facial landmarks for new face data, please use [Detect API](https://www.faceplusplus.com.cn/face-detection/#demo) of face++. For specific operations,  
@@ -81,7 +95,7 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
 
 **Pytorch -> onnx -> onnx_sim**  
 
-  make sure pip3 install onnx-simplifier
+  Make sure pip3 install onnx-simplifier
 
   ~~~~shell
    $ python3 pytorch2onnx.py
@@ -90,7 +104,7 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
 
 **onnx_sim -> ncnn**  
 
-  how to build :https://github.com/Tencent/ncnn/wiki/how-to-build
+  How to build :https://github.com/Tencent/ncnn/wiki/how-to-build
   
   ~~~shell
    $ cd ncnn/build/tools/onnx
