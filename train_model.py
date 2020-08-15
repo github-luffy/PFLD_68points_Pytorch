@@ -17,10 +17,9 @@ import argparse
 import sys
 import time
 from generate_data import DataSet
-from model2 import MobileNetV2, BlazeLandMark, AuxiliaryNet, WingLoss
+from model2 import MobileNetV2, BlazeLandMark, AuxiliaryNet, WingLoss, EfficientLM
 from utils import train_model
 from euler_angles_utils import calculate_pitch_yaw_roll
-#import tensorflow as tf
 
 
 def get_euler_angle_weights(landmarks_batch, euler_angles_pre, device):
@@ -78,19 +77,20 @@ def main(args):
 
     if args.save_image_example:
         save_image_example(train_loader, args)
-
-    coefficient = 0.25
-    # print(coefficient)
-    num_of_channels = [int(64 * coefficient), int(128 * coefficient), int(16 * coefficient), int(32 * coefficient),
-                       int(128 * coefficient)]
+    
+    #MobileNetV2
+    # coefficient = 0.25
+    # num_of_channels = [int(64 * coefficient), int(128 * coefficient), int(16 * coefficient), int(32 * coefficient), int(128 * coefficient)]
     # model = MobileNetV2(num_of_channels=num_of_channels, nums_class=136)  # model
     # auxiliary_net = AuxiliaryNet(input_channels=num_of_channels[0])
-
-    model = BlazeLandMark(nums_class=136)
-    auxiliary_net = AuxiliaryNet(input_channels=48, first_conv_stride=2)
-
+    
+    #BlazeLandMark
     #model = BlazeLandMark(nums_class=136)
-    #auxiliary_net = AuxiliaryNet(input_channels=24, first_conv_stride=1)
+    #auxiliary_net = AuxiliaryNet(input_channels=48, first_conv_stride=2)
+    
+    #efficientNet
+    model = EfficientLM(nums_class=136, compound_coef=0)
+    auxiliary_net = AuxiliaryNet(input_channels=model.p8_outchannels, first_conv_stride=2)
 
     if args.pretrained_model:
         pretrained_model = args.pretrained_model
