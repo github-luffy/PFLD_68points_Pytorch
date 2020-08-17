@@ -88,7 +88,16 @@ def main(args):
     #model = BlazeLandMark(nums_class=136)
     #auxiliary_net = AuxiliaryNet(input_channels=48, first_conv_stride=2)
     
-    #efficientNet
+    """
+        compound_coef=0 : efficientNet-b0;
+        compound_coef=1 : efficientNet-b1;
+        compound_coef=2 : efficientNet-b2;
+        compound_coef=3 : efficientNet-b3;
+        compound_coef=4 : efficientNet-b4;
+        compound_coef=5 : efficientNet-b5;
+        compound_coef=6 : efficientNet-b6;
+        compound_coef=7 : efficientNet-b7;
+    """
     model = EfficientLM(nums_class=136, compound_coef=0)
     auxiliary_net = AuxiliaryNet(input_channels=model.p8_outchannels, first_conv_stride=2)
 
