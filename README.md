@@ -93,16 +93,16 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
   
   Details about the models are below: 
 
-  |    *Name*         |*# Params*| *Mean error*|*Failure rate*|
-  |:-----------------:|:--------:|:-----------:|:------------:|
-  | `efficientnet-b0` |   5.3M   |    0.064    |     0.119    |
-  | `efficientnet-b1` |   7.8M   |             |              |
-  | `efficientnet-b2` |   9.2M   |             |              |
-  | `efficientnet-b3` |    12M   |             |              |
-  | `efficientnet-b4` |    19M   |             |              |
-  | `efficientnet-b5` |    30M   |             |              |
-  | `efficientnet-b6` |    43M   |             |              |
-  | `efficientnet-b7` |    66M   |             |              |
+  |    *Name*         |*# Params*| *Mean error*|*Failure rate*|*One iteration time(s)*|
+  |:-----------------:|:--------:|:-----------:|:------------:|:---------------------:|
+  | `efficientnet-b0` |   5.3M   |    0.064    |     0.119    |          0.202        |
+  | `efficientnet-b1` |   7.8M   |             |              |                       |
+  | `efficientnet-b2` |   9.2M   |             |              |                       |
+  | `efficientnet-b3` |    12M   |             |              |                       |
+  | `efficientnet-b4` |    19M   |             |              |                       |
+  | `efficientnet-b5` |    30M   |             |              |                       |
+  | `efficientnet-b6` |    43M   |             |              |                       |
+  | `efficientnet-b7` |    66M   |             |              |                       |
   
 ### pytorch -> onnx -> ncnn
 
