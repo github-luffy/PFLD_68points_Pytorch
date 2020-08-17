@@ -93,7 +93,7 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
   
   Details about the models are below: 
 
-  |    *Name*         |*# Params*|*Mean error.*|*Failure rate*|
+  |    *Name*         |*# Params*| *Mean error*|*Failure rate*|
   |:-----------------:|:--------:|:-----------:|:------------:|
   | `efficientnet-b0` |   5.3M   |    0.065    |     0.119    |
   | `efficientnet-b1` |   7.8M   |             |              |
