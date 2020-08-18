@@ -126,6 +126,8 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
 
 ### reference: 
 
+EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks https://arxiv.org/pdf/1905.11946.pdf
+
 PFLD: A Practical Facial Landmark Detector https://arxiv.org/pdf/1902.10859.pdf
 
 Tensorflow Implementation for 98 Facial Landmarks: https://github.com/guoqiangqi/PFLD
