@@ -95,13 +95,13 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
 
   |    *Name*         |*# Params*| *Mean error*|*Failure rate*|*One iteration time(s)*|
   |:-----------------:|:--------:|:-----------:|:------------:|:---------------------:|
-  | `efficientnet-b0` |  16.67M  |    0.078    |     0.152    |          0.202        |
+  | `efficientnet-b0` |  16.67M  |    0.064    |     0.119    |          0.202        |
   | `efficientnet-b1` |  26.37M  |    0.075    |     0.149    |          0.252        |
   | `efficientnet-b2` |  30.85M  |    0.071    |     0.145    |          0.266        |
   | `efficientnet-b3` |  42.29M  |    0.099    |     0.136    |          0.307        |
-  | `efficientnet-b4` |          |             |              |                       |
-  | `efficientnet-b5` |          |             |              |                       |
-  | `efficientnet-b6` |          |             |              |                       |
+  | `efficientnet-b4` |  68.34M  |    0.077    |     0.164    |          0.375        |
+  | `efficientnet-b5` |  109.34M |    0.094    |     0.173    |          0.501        |
+  | `efficientnet-b6` |  156.34M |    0.081    |     0.175    |          0.702        |
   | `efficientnet-b7` |          |             |              |                       |
   
 ### pytorch -> onnx -> ncnn
