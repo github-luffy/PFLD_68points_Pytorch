@@ -513,6 +513,50 @@ class DoubleBlazeBlock(nn.Module):
         out = (branch1 + self.shortcut(x)) if self.use_pool else (branch1 + x)
         return self.relu(out)
 
+ 
+class ASPP(nn.Module):
+
+    def __init__(self, in_channels=96, out_channels=96):
+        super(ASPP, self).__init__()
+
+        self.conv_1x1_1 = nn.Conv2d(in_channels, out_channels, kernel_size=1)
+        self.bn_conv_1x1_1 = nn.BatchNorm2d(out_channels)
+
+        self.conv_3x3_1 = nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=1, padding=2, dilation=2)
+        self.bn_conv_3x3_1 = nn.BatchNorm2d(out_channels)
+
+        self.conv_3x3_2 = nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=1, padding=3, dilation=3)
+        self.bn_conv_3x3_2 = nn.BatchNorm2d(out_channels)
+
+        self.conv_3x3_3 = nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=1, padding=5, dilation=5)
+        self.bn_conv_3x3_3 = nn.BatchNorm2d(out_channels)
+
+        self.avg_pool = nn.AdaptiveAvgPool2d(1)
+
+        self.conv_1x1_2 = nn.Conv2d(in_channels, out_channels, kernel_size=1)
+        self.bn_conv_1x1_2 = nn.BatchNorm2d(out_channels)
+
+        self.conv_1x1_3 = nn.Conv2d(in_channels*5, out_channels, kernel_size=1) # (480 = 5*96)
+        self.bn_conv_1x1_3 = nn.BatchNorm2d(out_channels)
+
+    def forward(self, feature_map):
+        feature_map_h = feature_map.size()[2] 
+        feature_map_w = feature_map.size()[3] 
+
+        out_1x1 = functional.relu(self.bn_conv_1x1_1(self.conv_1x1_1(feature_map))) 
+        out_3x3_1 = functional.relu(self.bn_conv_3x3_1(self.conv_3x3_1(feature_map))) 
+        out_3x3_2 = functional.relu(self.bn_conv_3x3_2(self.conv_3x3_2(feature_map))) 
+        out_3x3_3 = functional.relu(self.bn_conv_3x3_3(self.conv_3x3_3(feature_map)))
+
+        out_img = self.avg_pool(feature_map) 
+        out_img = functional.relu(self.bn_conv_1x1_2(self.conv_1x1_2(out_img))) 
+        out_img = functional.interpolate(out_img, size=(feature_map_h, feature_map_w), mode="bilinear", align_corners=True) 
+
+        out = torch.cat([out_1x1, out_3x3_1, out_3x3_2, out_3x3_3, out_img], 1)
+        out = functional.relu(self.bn_conv_1x1_3(self.conv_1x1_3(out)))
+
+        return out
+    
 
 class BlazeLandMark(nn.Module):
     def __init__(self, nums_class=136):
@@ -577,10 +621,11 @@ class BlazeLandMark(nn.Module):
             nn.BatchNorm2d(192),
             nn.ReLU(inplace=True),
         )
-
+        
+        self.aspp = ASPP(in_channels=96, out_channels=96)
         #self.in_features = 48 + 96 + 192
 
-        self.in_features = 192
+        self.in_features = 96*7*7
 
         self.fc = nn.Linear(in_features=self.in_features, out_features=nums_class)
 
@@ -635,7 +680,7 @@ class BlazeLandMark(nn.Module):
         block_out2 = self.doubleBlazeBlock1(block_out1)
         # print(out2.size())
 
-        block_out3 = self.secondconv(self.doubleBlazeBlock2(block_out2))
+        block_out3 = self.aspp(self.doubleBlazeBlock2(block_out2))
         # print(out3.size())
         # assert out1.size(2) == 14 and out1.size(3) == 14
         # out1_ = self.avg_pool1(out1)
@@ -655,10 +700,11 @@ class BlazeLandMark(nn.Module):
         # squeeze(-1): delete dims that number is 1
         #block_out1_ = functional.adaptive_avg_pool2d(block_out1, 1).squeeze(-1).squeeze(-1)
         #block_out2_ = functional.adaptive_avg_pool2d(block_out2, 1).squeeze(-1).squeeze(-1)
-        block_out3_ = functional.adaptive_avg_pool2d(block_out3, 1).squeeze(-1).squeeze(-1)
+        #block_out3_ = functional.adaptive_avg_pool2d(block_out3, 1).squeeze(-1).squeeze(-1)
         #print(block_out3_.size())
-        assert block_out3_.size(1) == self.in_features
-        pre_landmarks = self.fc(block_out3_)
+        block_out3 = block_out3.view(block_out3.size(0), -1)
+        assert block_out3.size(1) == self.in_features
+        pre_landmarks = self.fc(block_out3)
         
         return pre_landmarks, block_out1
 
