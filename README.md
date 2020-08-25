@@ -96,6 +96,7 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
   |    *Name*         |*# Params*| *Mean error*|*Failure rate*|*One iteration time(s)*|
   |:-----------------:|:--------:|:-----------:|:------------:|:---------------------:|
   | `MobileNetV2_0.25`|   1.09M  |    0.075    |     0.174    |          0.154        |
+  | `MobileNetV2_1.00`|   7.28M  |    0.065    |     0.127    |          0.203        |
   |  `BlazeLandmark`  |   7.52M  |    0.069    |     0.131    |          0.171        |
   | `efficientnet-b0` |  16.67M  |    0.064    |     0.119    |          0.202        |
   | `efficientnet-b1` |  26.37M  |    0.075    |     0.149    |          0.252        |
