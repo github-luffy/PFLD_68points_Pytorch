@@ -17,7 +17,7 @@ import argparse
 import sys
 import time
 from generate_data import DataSet
-from model2 import MobileNetV2, BlazeLandMark, AuxiliaryNet, WingLoss, EfficientLM
+from model2 import MobileNetV2, BlazeLandMark, AuxiliaryNet, WingLoss, EfficientLM, HighResolutionNet
 from utils import train_model
 from euler_angles_utils import calculate_pitch_yaw_roll
 
@@ -100,7 +100,10 @@ def main(args):
     """
     model = EfficientLM(nums_class=136, compound_coef=0)
     auxiliary_net = AuxiliaryNet(input_channels=model.p8_outchannels, first_conv_stride=2)
-
+    
+    #model = HighResolutionNet(nums_class=136)
+    #auxiliary_net = AuxiliaryNet(input_channels=64, first_conv_stride=2)
+    
     if args.pretrained_model:
         pretrained_model = args.pretrained_model
         if args.all_model:
