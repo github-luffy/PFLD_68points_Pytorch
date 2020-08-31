@@ -71,13 +71,13 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
    $ sh train.sh
   ~~~
 
-  testing for reading images from a camera:
+  reading images from a camera to test:
 
   ~~~shell
    $ python3 camera.py
   ~~~
   
-  testing for reading images from a dir:
+  reading images from a dir to test:
   
   ~~~shell
    $ python3 test.py
