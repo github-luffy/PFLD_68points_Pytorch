@@ -76,6 +76,10 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
   ~~~shell
    $ python3 camera.py
   ~~~
+  or
+  ~~~shell
+   $ python3 test.py
+  ~~~
 
 ### Result
 
