@@ -98,7 +98,9 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
   ![Image text](https://github.com/github-luffy/PFLD_68points_Pytorch/tree/master/data/Sample_imgs/86.jpg)  
   
   Details about the models are below: 
-
+  
+  tip: please install [resnest](https://github.com/zhanghang1989/ResNeSt) to use ResNest models. 
+  
   |    *Name*         |*# Params*| *Mean error*|*Failure rate*|*One iteration time(s)*|
   |:-----------------:|:--------:|:-----------:|:------------:|:---------------------:|
   | `MobileNetV2_0.25`|   1.09M  |    0.075    |     0.174    |          0.154        |
