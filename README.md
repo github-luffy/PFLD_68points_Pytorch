@@ -141,7 +141,7 @@ Implementation of PFLD For 68 Facial Landmarks By Pytorch
 
 PFLD: A Practical Facial Landmark Detector https://arxiv.org/pdf/1902.10859.pdf
 
-ResNest: https://hangzhang.org/files/resnest.pdf 
+ResNest: Split-Attention Networks https://hangzhang.org/files/resnest.pdf 
 
 EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks https://arxiv.org/pdf/1905.11946.pdf
 
