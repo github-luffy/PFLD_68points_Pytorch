@@ -139,7 +139,7 @@ def main(args):
     #     print(param_tensor, "\t", model.state_dict()[param_tensor].size())
     model.to(device)
     auxiliary_net.to(device)
-    optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate, weight_decay=args.weight_decay)  # optimizer
+    optimizer = torch.optim.Adam([{'params': model.parameters()}, {'params': auxiliary_net.parameters()}], lr=args.learning_rate, weight_decay=args.weight_decay)  # optimizer
     lr_epoch = args.lr_epoch.strip().split(',')
     lr_epoch = list(map(int, lr_epoch))
     scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=lr_epoch, gamma=0.1)
