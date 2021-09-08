@@ -56,8 +56,8 @@ def test_images():
             x2 = min(width, x2)
             y2 = min(height, y2)
             cropped = image[y1:y2, x1:x2]
-            box_w = x2-x1+1
-            box_h = y2-y1+1
+            box_w = x2-x1
+            box_h = y2-y1
             #print(dy, edy, dx, edx)
             if dx > 0 or dy > 0 or edx > 0 or edy > 0:
                 cropped = cv2.copyMakeBorder(cropped, dy, edy, dx, edx, cv2.BORDER_CONSTANT, 0)  # top,bottom,left,right
@@ -127,8 +127,8 @@ def main():
             edy = max(0, y2 - height)
             x2 = min(width, x2)
             y2 = min(height, y2)
-            box_w = x2-x1+1
-            box_h = y2-y1+1
+            box_w = x2-x1
+            box_h = y2-y1
             cropped = image[y1:y2, x1:x2]
             if dx > 0 or dy > 0 or edx > 0 or edy > 0:
                 cropped = cv2.copyMakeBorder(cropped, dy, edy, dx, edx, cv2.BORDER_CONSTANT, 0)
