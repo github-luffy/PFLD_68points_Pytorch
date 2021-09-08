@@ -65,7 +65,7 @@ def test_images():
 
             input = cv2.resize(cropped, (image_size, image_size))
             input = cv2.cvtColor(input, cv2.COLOR_BGR2RGB)
-            input = input.astype(np.float32) / 256.0
+            input = input.astype(np.float32) / 255.0
             input = np.expand_dims(input, 0)
             input = torch.Tensor(input.transpose((0, 3, 1, 2)))
 
@@ -136,7 +136,7 @@ def main():
 
             input = cv2.resize(cropped, (image_size, image_size))
             input = cv2.cvtColor(input, cv2.COLOR_BGR2RGB)
-            input = input.astype(np.float32) / 256.0
+            input = input.astype(np.float32) / 255.0
             input = np.expand_dims(input, 0)
             input = torch.Tensor(input.transpose((0, 3, 1, 2)))
 
